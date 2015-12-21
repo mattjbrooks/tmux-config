@@ -45,14 +45,13 @@ function newsession {
     local size=50
   fi
 
-
   tmux new-session -d -s matt
   tmux select-window -t matt
-  # Split horizontally if panes > 1
+  # If $panes > 1 then split window into 2 horizontally adjacent panes
   if [ $panes -gt 1 ] ; then
     tmux split-window -h -p $size -t matt
   fi
-  # Split right pane vertically if panes > 2
+  # If $panes > 2 then split right pane into 2 vertically adjacent panes
   if [ $panes -gt 2 ] ; then
     tmux split-window -v -p 50 -t matt
   fi
