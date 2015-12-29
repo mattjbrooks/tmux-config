@@ -22,18 +22,18 @@ function setcolorscheme {
 }
 
 function newsession {
-  local panes=3 # default to 3 panes
+  local panes=2 # default to 2 panes
   local arg
 
-  # Optional -1 or -2 flag to set different num of panes
+  # Optional -1 or -3 flag to set different num of panes
   for arg in "$@"
   do
     case "$arg" in
       -1)
         local panes=1
         ;;
-      -2)
-        local panes=2
+      -3)
+        local panes=3
         ;;
     esac
   done
