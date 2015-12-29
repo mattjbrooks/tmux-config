@@ -22,6 +22,11 @@ function setcolorscheme {
 }
 
 function newsession {
+  # return if we are already in a tmux session
+  if [ $TMUX ] ; then
+    return 0
+  fi
+
   local panes=2 # default to 2 panes
   local arg
 
