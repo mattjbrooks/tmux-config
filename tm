@@ -43,9 +43,9 @@ function newsession {
     esac
   done
 
-  # if num of cols < 158 reduce right panes to 40% horizontally
+  # if num of cols < 158 reduce right panes to 42% horizontally
   if [ $(tput cols) -lt 158 ] ; then
-    local size=40
+    local size=42
   else
     local size=50
   fi
