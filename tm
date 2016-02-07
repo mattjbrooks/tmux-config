@@ -27,13 +27,24 @@ function newsession {
     return 0
   fi
 
-  local panes=1 # default to 1 pane
+  local panes=2 # default to 2 panes
+
+  # if num of cols < 160
+  if [ $(tput cols) -lt 160 ] ; then
+    local size=40 # reduce right panes to 40% horizontally
+  else
+    local size=50
+  fi
+
   local arg
 
-  # Optional -2 or -3 flag to set different num of panes
+  # Optional -1, -2 or -3 flag to set different num of panes
   for arg in "$@"
   do
     case "$arg" in
+      -1)
+        local panes=1
+        ;;
       -2)
         local panes=2
         ;;
@@ -42,13 +53,6 @@ function newsession {
         ;;
     esac
   done
-
-  # if num of cols < 158 reduce right panes to 42% horizontally
-  if [ $(tput cols) -lt 158 ] ; then
-    local size=42
-  else
-    local size=50
-  fi
 
   tmux new-session -d -s matt
   tmux select-window -t matt
