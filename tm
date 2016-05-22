@@ -27,7 +27,7 @@ function newsession {
     return 0
   fi
 
-  local panes=2 # default to 2 panes
+  local panes=1 # default to 1 pane
 
   # if num of cols < 160
   if [ $(tput cols) -lt 160 ] ; then
