@@ -27,5 +27,4 @@ if [[ "$#" -gt 1 ]] ; then
   exit 1
 fi
 
-konsoleprofile colors="Vim"
 tmux attach -t "$1" || newsession "$1"
